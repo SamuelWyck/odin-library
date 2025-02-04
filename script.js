@@ -64,13 +64,13 @@ const library = new Library();
 library.addBook("The Dragon Reborn", "Robert Jordan", "624", true);
 library.addBook("War and Peace", "Leo Tolstoy", "1,225", false);
 
-for (let book of library.books) {
-    addToBookDisplay(book);
+for (let i = 0; i < library.books.length; i += 1) {
+    const book = library.books[i];
+    addToBookDisplay(book, i);
 }
 
 
-function addToBookDisplay(book) {
-    const bookNumber = library.books.length + 1;
+function addToBookDisplay(book, bookNumber) {
     const titleDiv = createInfoElement(book.title, bookNumber);
     const authorDiv = createInfoElement(book.author, bookNumber);
     const pagesDiv = createInfoElement(book.pages, bookNumber);
