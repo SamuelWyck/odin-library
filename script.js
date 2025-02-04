@@ -1,11 +1,14 @@
 const bookTable = document.querySelector(".book-display");
 
 
+
+
+
 function Library() {
     this.books = [];
     
     this.addBook = function(title, author, pages, read=false) {
-        const book = Book(title, author, pages, read);
+        const book = new Book(title, author, pages, read);
         this.books.push(book);
     };
 
@@ -47,3 +50,56 @@ Book.prototype.toggleRead = function() {
     this.read = !this.read;
 };
 
+Book.prototype.getReadStatus = function() {
+    if (this.read) {
+        return "Read";
+    }
+    return "Not yet read";
+}
+
+
+
+const library = new Library();
+
+library.addBook("test title", "test author", 250, true);
+
+for (let book of library.books) {
+    addToBookDisplay(book);
+}
+
+
+function addToBookDisplay(book) {
+    const bookNumber = library.books.length + 1;
+    const titleDiv = createInfoElement(book.title, bookNumber);
+    const authorDiv = createInfoElement(book.author, bookNumber);
+    const pagesDiv = createInfoElement(book.pages, bookNumber);
+    const readDiv = createInfoElement(book.getReadStatus(), bookNumber);
+    const readBtnDiv = createButtonDiv("Toggle Read", "read-toggle", bookNumber);
+    const deleteBtnDiv = createButtonDiv("Remove", "delete-btn", bookNumber);
+
+    bookTable.appendChild(titleDiv);
+    bookTable.appendChild(authorDiv);
+    bookTable.appendChild(pagesDiv);
+    bookTable.appendChild(readDiv);
+    bookTable.appendChild(readBtnDiv);
+    bookTable.appendChild(deleteBtnDiv);
+}
+
+function createInfoElement(text, id) {
+    const div = document.createElement("div");
+    div.innerText = text;
+    div.dataset.number = id;
+    div.classList.add("grid-item");
+    return div;
+}
+
+function createButtonDiv(text, className, id) {
+    const div = document.createElement("div");
+    div.dataset.number = id;
+    div.classList.add("grid-item");
+    const btn = document.createElement("button");
+    btn.innerText = text;
+    btn.classList.add(className);
+    div.appendChild(btn);
+    return div;
+}
