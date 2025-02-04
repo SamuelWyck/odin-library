@@ -19,6 +19,8 @@ html {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     row-gap: 1rem;
+    border: 1px solid black;
+    border-bottom: none;
 }
 
 .book-display > p {
