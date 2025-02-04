@@ -9,36 +9,39 @@
     </head>
 
     <body>
-        <div class="main">
-            <div class="book-display">
-
+        <div class="book-display debug">
+            <p>Title</p>
+            <p>Author</p>
+            <p>Pages</p>
+            <p>Read</p>
+            <p>Read Status</p>
+            <p>Remove</p>
+        </div>
+        <div class="form-popup" style="display: none;">
+            <div>
+                <button type="button">X</button>
             </div>
-            <div class="form-popup" style="display: none;">
+            <form action="#">
                 <div>
-                    <button type="button">X</button>
+                    <label for="title">Book Title</label>
+                    <input type="text" name="title" id="title">
                 </div>
-                <form action="#">
-                    <div>
-                        <label for="title">Book Title</label>
-                        <input type="text" name="title" id="title">
-                    </div>
-                    <div>
-                        <label for="author">Book Author</label>
-                        <input type="text" name="author" id="author">
-                    </div>
-                    <div>
-                        <label for="pages">Number of Pages</label>
-                        <input type="text" name="pages" id="pages">
-                    </div>
-                    <div>
-                        <label for="read">Already Read</label>
-                        <input type="checkbox" name="read" id="read">
-                    </div>
-                    <div>
-                        <button type="submit">Add Book</button>
-                    </div>
-                </form>
-            </div>
+                <div>
+                    <label for="author">Book Author</label>
+                    <input type="text" name="author" id="author">
+                </div>
+                <div>
+                    <label for="pages">Number of Pages</label>
+                    <input type="text" name="pages" id="pages">
+                </div>
+                <div>
+                    <label for="read">Already Read</label>
+                    <input type="checkbox" name="read" id="read">
+                </div>
+                <div>
+                    <button type="submit">Add Book</button>
+                </div>
+            </form>
         </div>
     </body>
 </html>

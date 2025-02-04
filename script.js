@@ -1,4 +1,4 @@
-
+const bookTable = document.querySelector(".book-display");
 
 
 function Library() {
