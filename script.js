@@ -62,6 +62,7 @@ Book.prototype.getReadStatus = function() {
 const library = new Library();
 
 library.addBook("test title", "test author", 250, true);
+library.addBook("test title", "test author", 250, true);
 
 for (let book of library.books) {
     addToBookDisplay(book);

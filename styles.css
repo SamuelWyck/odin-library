@@ -18,6 +18,7 @@ html {
     max-width: 80%;
     display: grid;
     grid-template-columns: repeat(6, 1fr);
+    row-gap: 1rem;
 }
 
 .book-display > p {
@@ -26,8 +27,29 @@ html {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    border: 1px solid white;
     align-items: center;
     padding: 1rem 0;
     font-size: 1.3rem;
     font-weight: bold;
+}
+
+.grid-item {
+    font-size: 1.3rem;
+    border-bottom: 1px solid black;
+    padding-bottom: 1rem;
+    display: grid;
+    align-items: center;
+    justify-items: center;
+}
+
+.grid-item > button {
+    border: none;
+    background-color: black;
+    color: white;
+    font-size: 1.3rem;
+    font-weight: bold;
+    border-radius: 10px;
+    padding: 1rem;
+
 }
