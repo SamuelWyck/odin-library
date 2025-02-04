@@ -61,8 +61,8 @@ Book.prototype.getReadStatus = function() {
 
 const library = new Library();
 
-library.addBook("test title", "test author", 250, true);
-library.addBook("test title", "test author", 250, true);
+library.addBook("The Dragon Reborn", "Robert Jordan", "624", true);
+library.addBook("War and Peace", "Leo Tolstoy", "1,225", false);
 
 for (let book of library.books) {
     addToBookDisplay(book);
