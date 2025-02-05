@@ -31,11 +31,10 @@ function Library() {
         this.books = newArray;
     };
 
-    this.toggleRead = function(title, author) {
+    this.getBook = function(title, author) {
         for (let i = 0; i < this.books.length; i += 1) {
             const book = this.books[i];
             if (book.title === title && book.author === author) {
-                book.toggleRead();
                 return book;
             }
         }
@@ -117,6 +116,7 @@ function changeReadStatus(element) {
     const title = document.querySelector(`.title-${bookId}`).innerText;
     const author = document.querySelector(`.author-${bookId}`).innerText;
     const readDiv = document.querySelector(`.read-${bookId}`);
-    const changedBook = library.toggleRead(title, author);
-    readDiv.innerText = changedBook.getReadStatus();
+    const book = library.getBook(title, author);
+    book.toggleRead();
+    readDiv.innerText = book.getReadStatus();
 }
