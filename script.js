@@ -2,7 +2,7 @@ const bookTable = document.querySelector(".book-display");
 
 bookTable.addEventListener("click", function(event) {
     if (event.target.matches(".read-toggle")) {
-        
+        changeReadStatus(event.target);
     }
 });
 
@@ -108,4 +108,8 @@ function createButtonDiv(text, className, id) {
     btn.classList.add(className);
     div.appendChild(btn);
     return div;
+}
+
+function changeReadStatus(element) {
+    const bookId = element.dataset.number;
 }
