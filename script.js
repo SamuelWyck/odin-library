@@ -18,6 +18,9 @@ addBookBtn.addEventListener("click", function(event) {
 popup.addEventListener("click", function(event) {
     if (event.target.matches(".popup-exit")) {
         hidePopup();
+    } else if (event.target.matches(".form-submit-btn")) {
+        event.preventDefault();
+        handleFormSubmit();
     }
 });
 
@@ -159,4 +162,8 @@ function showPopup() {
 function hidePopup() {
     popup.classList.add("hide-popup");
     form.reset();
+}
+
+function handleFormSubmit() {
+    
 }
