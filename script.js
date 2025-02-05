@@ -81,7 +81,7 @@ Book.prototype.getReadStatus = function() {
 const library = new Library();
 
 library.addBook("The Dragon Reborn", "Robert Jordan", "624", true);
-library.addBook("War and Peace", "Leo Tolstoy", "1,225", false);
+library.addBook("War and Peace", "Leo Tolstoy", "1225", false);
 
 for (let i = 0; i < library.books.length; i += 1) {
     const book = library.books[i];
@@ -165,9 +165,41 @@ function hidePopup() {
 }
 
 function handleFormSubmit() {
+    const formData = getFormData();
+
+}
+
+function getFormData() {
+    const data = {};
     const formData = new FormData(form);
-    const title = formData.get("title");
-    const author = formData.get("author");
-    const pages = formData.get("pages");
+
+    const title = formData.get("title").trim();
+    if (title === "" || !isNaN(title)) {
+        return null;
+    } else {
+        data["title"] = title;
+    }
+
+    const author = formData.get("author").trim();
+    if (author === "" || !isNaN(author)) {
+        console.log("yes")
+        return null;
+    } else {
+        data["author"] = author;
+    }
+
+    const pages = formData.get("pages").trim();
+    if (pages === "" || isNaN(pages)) {
+        return null;
+    } else {
+        data["pages"] = pages;
+    }
+
     const read = formData.get("read");
+    if (read === null) {
+        data["read"] = false;
+    } else {
+        data["read"] = true;
+    }
+    return data;
 }
