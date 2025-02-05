@@ -36,7 +36,7 @@ function Library() {
             const book = this.books[i];
             if (book.title === title && book.author === author) {
                 book.toggleRead();
-                break;
+                return book;
             }
         }
     };
@@ -116,5 +116,7 @@ function changeReadStatus(element) {
     const bookId = element.dataset.number;
     const title = document.querySelector(`.title-${bookId}`).innerText;
     const author = document.querySelector(`.author-${bookId}`).innerText;
-    
+    const readDiv = document.querySelector(`.read-${bookId}`);
+    const changedBook = library.toggleRead(title, author);
+    readDiv.innerText = changedBook.getReadStatus();
 }
