@@ -63,3 +63,14 @@ html {
     justify-content: center;
     margin-top: 5vh;
 }
+
+.form-popup {
+    border: 1px solid black;
+    padding: 1rem;
+    border-radius: 10px;
+    position: absolute;
+    width: fit-content;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+}
