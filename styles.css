@@ -48,7 +48,7 @@ html {
     text-align: center;
 }
 
-.grid-item > button, .add-book-btn {
+.grid-item > button, .add-book-btn, .form-popup button {
     border: none;
     background-color: black;
     color: white;
@@ -73,6 +73,8 @@ html {
     left: 0;
     right: 0;
     margin: 0 auto;
+    top: 10%;
+    background-color: white;
 }
 
 .form-popup > div {
@@ -80,6 +82,21 @@ html {
     justify-content: flex-end;
 }
 
+form {
+    font-size: 1.5rem;
+}
+
 label {
+    font-size: 1.5rem;
     display: block;
+}
+
+input {
+    padding: 0 .5rem;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    height: 2em;
+    outline: none;
+    border: 3px solid black;
+    border-radius: 10px;
 }
