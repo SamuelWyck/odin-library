@@ -109,3 +109,8 @@ input[type="text"] {
     justify-content: center;
     align-items: center;
 }
+
+.submit-btn-container {
+    display: flex;
+    justify-content: center;
+}
