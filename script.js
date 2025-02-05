@@ -1,4 +1,6 @@
 const bookTable = document.querySelector(".book-display");
+const addBookBtn = document.querySelector(".add-book-btn");
+const popup = document.querySelector(".form-popup");
 
 bookTable.addEventListener("click", function(event) {
     if (event.target.matches(".read-toggle")) {
@@ -8,6 +10,9 @@ bookTable.addEventListener("click", function(event) {
     }
 });
 
+addBookBtn.addEventListener("click", function(event) {
+    showPopup();
+});
 
 
 
@@ -138,4 +143,8 @@ function getTitleAndAuthor(bookId) {
     const title = document.querySelector(`.title-${bookId}`).innerText;
     const author = document.querySelector(`.author-${bookId}`).innerText;
     return [title, author];
+}
+
+function showPopup() {
+    popup.classList.remove("hide-popup")
 }
