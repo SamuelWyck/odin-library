@@ -166,7 +166,22 @@ function hidePopup() {
 
 function handleFormSubmit() {
     const formData = getFormData();
+    if (formData === null) {
+        return;
+    }
 
+    const book = addToLibrary(formData);
+    addToBookDisplay(book, library.books.length - 1);
+}
+
+function addToLibrary(formData) {
+    const title = formData["title"];
+    const author = formData["author"];
+    const pages = formData["pages"];
+    const read = formData["read"];
+
+    library.addBook(title, author, pages, read);
+    return library.getBook(title, author);
 }
 
 function getFormData() {
