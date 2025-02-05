@@ -3,6 +3,8 @@ const bookTable = document.querySelector(".book-display");
 bookTable.addEventListener("click", function(event) {
     if (event.target.matches(".read-toggle")) {
         changeReadStatus(event.target);
+    } else if (event.target.matches(".delete-btn")) {
+        
     }
 });
 
