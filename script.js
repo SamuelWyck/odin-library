@@ -132,7 +132,6 @@ function removeFromDisplay(bookId) {
     for (let div of infoDivs) {
         div.remove();
     }
-    console.log(library.books)
 }
 
 function getTitleAndAuthor(bookId) {
