@@ -106,6 +106,7 @@ function createButtonDiv(text, className, id) {
     div.classList.add("grid-item");
     const btn = document.createElement("button");
     btn.innerText = text;
+    btn.dataset.number = id;
     btn.classList.add(className);
     div.appendChild(btn);
     return div;
@@ -113,4 +114,7 @@ function createButtonDiv(text, className, id) {
 
 function changeReadStatus(element) {
     const bookId = element.dataset.number;
+    const title = document.querySelector(`.title-${bookId}`).innerText;
+    const author = document.querySelector(`.author-${bookId}`).innerText;
+    
 }
