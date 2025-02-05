@@ -4,7 +4,7 @@ bookTable.addEventListener("click", function(event) {
     if (event.target.matches(".read-toggle")) {
         changeReadStatus(event.target);
     } else if (event.target.matches(".delete-btn")) {
-        
+        deleteBook(event.target);
     }
 });
 
@@ -20,14 +20,12 @@ function Library() {
     };
 
     this.removeBook = function(title, author) {
+        const targetBook = this.getBook(title, author);
         let newArray = [];
-        let found = false;
         for (let i = 0; i < this.books.length; i += 1) {
             const book = this.books[i];
-            if (found || (book.title !== title || book.auhtor !== author)) {
+            if (book !== targetBook) {
                 newArray.push(book);
-            } else if (!found && (book.title === title && book.author === author)) {
-                found = true;
             }
         }
         this.books = newArray;
@@ -120,6 +118,21 @@ function changeReadStatus(element) {
     const book = library.getBook(title, author);
     book.toggleRead();
     readDiv.innerText = book.getReadStatus();
+}
+
+function deleteBook(element) {
+    const bookId = element.dataset.number;
+    const [title, author] = getTitleAndAuthor(bookId);
+    library.removeBook(title, author);
+    removeFromDisplay(bookId);
+}
+
+function removeFromDisplay(bookId) {
+    const infoDivs = document.querySelectorAll(`div[data-number$="${bookId}"]`);
+    for (let div of infoDivs) {
+        div.remove();
+    }
+    console.log(library.books)
 }
 
 function getTitleAndAuthor(bookId) {
