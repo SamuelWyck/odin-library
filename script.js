@@ -76,10 +76,10 @@ for (let i = 0; i < library.books.length; i += 1) {
 
 
 function addToBookDisplay(book, bookNumber) {
-    const titleDiv = createInfoElement(book.title, bookNumber);
-    const authorDiv = createInfoElement(book.author, bookNumber);
-    const pagesDiv = createInfoElement(book.pages, bookNumber);
-    const readDiv = createInfoElement(book.getReadStatus(), bookNumber);
+    const titleDiv = createInfoElement(book.title, bookNumber, "title");
+    const authorDiv = createInfoElement(book.author, bookNumber, "author");
+    const pagesDiv = createInfoElement(book.pages, bookNumber, "pages");
+    const readDiv = createInfoElement(book.getReadStatus(), bookNumber, "read");
     const readBtnDiv = createButtonDiv("Toggle Read", "read-toggle", bookNumber);
     const deleteBtnDiv = createButtonDiv("Remove", "delete-btn", bookNumber);
 
@@ -91,11 +91,12 @@ function addToBookDisplay(book, bookNumber) {
     bookTable.appendChild(deleteBtnDiv);
 }
 
-function createInfoElement(text, id) {
+function createInfoElement(text, id, classNameStart) {
     const div = document.createElement("div");
     div.innerText = text;
     div.dataset.number = id;
     div.classList.add("grid-item");
+    div.classList.add(`${classNameStart}-${id}`);
     return div;
 }
 
