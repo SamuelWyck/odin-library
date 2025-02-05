@@ -162,11 +162,13 @@ function showPopup() {
 function hidePopup() {
     popup.classList.add("hide-popup");
     form.reset();
+    removeErrorMessages();
 }
 
 function handleFormSubmit() {
     const formData = getFormData();
-    if (formData === null) {
+    if (typeof formData === "string") {
+        handleError(formData);
         return;
     }
 
@@ -185,28 +187,52 @@ function addToLibrary(formData) {
     return library.getBook(title, author);
 }
 
+function handleError(classPrefix) {
+    removeErrorMessages();
+    const message = getErrorMessage(classPrefix);
+    const label = document.querySelector(`.${classPrefix}-label`);
+    label.classList.add("error");
+    label.style.setProperty("--content", `'${message}'`);
+}
+
+function removeErrorMessages() {
+    const labels = document.querySelectorAll("label");
+    for (let label of labels) {
+        label.classList.remove("error");
+    }
+}
+
+function getErrorMessage(field) {
+    if (field === "title") {
+        return "Enter a valid title";
+    } else if (field === "author") {
+        return "Enter a valid author";
+    } else if (field === "pages") {
+        return "Enter a valid number";
+    }
+}
+
 function getFormData() {
     const data = {};
     const formData = new FormData(form);
 
     const title = formData.get("title").trim();
     if (title === "" || !isNaN(title)) {
-        return null;
+        return "title";
     } else {
         data["title"] = title;
     }
 
     const author = formData.get("author").trim();
     if (author === "" || !isNaN(author)) {
-        console.log("yes")
-        return null;
+        return "author";
     } else {
         data["author"] = author;
     }
 
     const pages = formData.get("pages").trim();
     if (pages === "" || isNaN(pages)) {
-        return null;
+        return "pages";
     } else {
         data["pages"] = pages;
     }
