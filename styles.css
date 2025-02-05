@@ -31,7 +31,7 @@ html {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    border: 1px solid white;
+    /* border: 1px solid white; */
     align-items: center;
     padding: 1rem 0;
     font-size: 1.3rem;
@@ -150,4 +150,8 @@ input[type="checkbox"] {
     margin-left: auto;
     color: red;
     margin-right: .5rem;
+}
+
+button:hover {
+    background-color: darkblue;
 }
