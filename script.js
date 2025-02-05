@@ -113,10 +113,15 @@ function createButtonDiv(text, className, id) {
 
 function changeReadStatus(element) {
     const bookId = element.dataset.number;
-    const title = document.querySelector(`.title-${bookId}`).innerText;
-    const author = document.querySelector(`.author-${bookId}`).innerText;
+    const [title, author] = getTitleAndAuthor(bookId);
     const readDiv = document.querySelector(`.read-${bookId}`);
     const book = library.getBook(title, author);
     book.toggleRead();
     readDiv.innerText = book.getReadStatus();
+}
+
+function getTitleAndAuthor(bookId) {
+    const title = document.querySelector(`.title-${bookId}`).innerText;
+    const author = document.querySelector(`.author-${bookId}`).innerText;
+    return [title, author];
 }
