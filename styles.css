@@ -129,3 +129,18 @@ input[type="checkbox"] {
 .hide-popup {
     display: none;
 }
+
+.error + input {
+    border-color: red;
+    background-color: rgb(255, 236, 212);
+}
+
+.error::after {
+    /* content: "Enter a valid number"; */
+    content: "";
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-align: end;
+    margin-left: 1.5rem;
+    color: red;
+}
