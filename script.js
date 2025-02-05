@@ -165,5 +165,9 @@ function hidePopup() {
 }
 
 function handleFormSubmit() {
-    
+    const formData = new FormData(form);
+    const title = formData.get("title");
+    const author = formData.get("author");
+    const pages = formData.get("pages");
+    const read = formData.get("read");
 }
