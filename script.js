@@ -172,6 +172,7 @@ function handleFormSubmit() {
 
     const book = addToLibrary(formData);
     addToBookDisplay(book, library.books.length - 1);
+    hidePopup();
 }
 
 function addToLibrary(formData) {
