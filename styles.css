@@ -14,7 +14,7 @@ html {
 }
 
 .book-display {
-    margin: 10vh auto 5vh auto;
+    margin: 2vh auto 5vh auto;
     max-width: 80%;
     min-width: min-content;
     display: grid;
@@ -48,7 +48,7 @@ html {
     text-align: center;
 }
 
-.grid-item > button {
+.grid-item > button, .add-book-btn {
     border: none;
     background-color: black;
     color: white;
@@ -56,4 +56,10 @@ html {
     font-weight: bold;
     border-radius: 10px;
     padding: 1rem;
+}
+
+.add-btn-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 5vh;
 }
