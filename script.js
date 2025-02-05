@@ -1,5 +1,10 @@
 const bookTable = document.querySelector(".book-display");
 
+bookTable.addEventListener("click", function(event) {
+    if (event.target.matches(".read-toggle")) {
+        
+    }
+});
 
 
 
