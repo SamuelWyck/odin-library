@@ -125,3 +125,7 @@ input[type="checkbox"] {
     font-size: 3rem;
     transform: scale(2.2);
 }
+
+.hide-popup {
+    display: none;
+}
