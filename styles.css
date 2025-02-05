@@ -16,6 +16,7 @@ html {
 .book-display {
     margin: 10vh auto 5vh auto;
     max-width: 80%;
+    min-width: min-content;
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     row-gap: 1rem;
