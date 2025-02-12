@@ -58,25 +58,43 @@ function Library() {
 
 
 
-function Book(title, author, pages, read=false) {
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.read = read;
+// function Book(title, author, pages, read=false) {
+//     this.title = title;
+//     this.author = author;
+//     this.pages = pages;
+//     this.read = read;
+// };
+
+// Book.prototype.toggleRead = function() {
+//     this.read = !this.read;
+// };
+
+// Book.prototype.getReadStatus = function() {
+//     if (this.read) {
+//         return "Read";
+//     }
+//     return "Not yet read";
+// }
+
+class Book {
+    constructor(title, author, pages, read=false) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.read = read;
+    };
+
+    toggleRead() {
+        this.read = !this.read;
+    };
+
+    getReadStatus() {
+        if (this.read) {
+            return "Read";
+        }
+        return "Not yet read";
+    };
 };
-
-Book.prototype.toggleRead = function() {
-    this.read = !this.read;
-};
-
-Book.prototype.getReadStatus = function() {
-    if (this.read) {
-        return "Read";
-    }
-    return "Not yet read";
-}
-
-
 
 const library = new Library();
 
